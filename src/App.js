@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Header } from "./components/Header.jsx";
+import { Categories } from "./components/Categories.jsx";
+import { Sort } from "./components/Sort.jsx";
+import { CandlesList } from "./components/CandleList.jsx";
+import "./styles/app.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Header />
+      <div className="content">
+        <Categories />
+        <Sort />
+        <CandlesList />
+      </div>
     </div>
   );
 }
