@@ -2,7 +2,12 @@ import "../styles/components/_candle-block.scss";
 import "../styles/app.scss";
 import React from "react";
 
-export const CandleBlock = ({title, price}) => {
+export const CandleBlock = ({title, price, imageUrl, sizes, types}) => {
+    const typeNames = ['soy', 'coconut'];
+    const [activeType, setActiveType] = React.useState(0);
+    const [activeSize, setActiveSize] = React.useState(0);
+
+
     const [candleCount, setCandleCount] = React.useState(0);
     const onClickAddButton = () => {
         setCandleCount(candleCount + 1);
@@ -13,23 +18,20 @@ export const CandleBlock = ({title, price}) => {
             <div className="candle-block">
                 <img
                 className="candle-block__image"
-                src="https://i.etsystatic.com/15255740/r/il/76d3ea/5397689271/il_fullxfull.5397689271_sryp.jpg"
+                src={imageUrl}
                 alt="Candle"
                 />
                 <h4 className="candle-block__title">{title}</h4>
                 <div className="candle-block__selector">
                     <ul>
-                        <li className="active">soy</li>
-                        <li>coconut</li>
+                        {types.map((type) => <li onClick={()=> setActiveType(type)} className={ activeType === type ? 'active' : ''}>{typeNames[type]}</li>)}
                     </ul>
                     <ul>
-                        <li className="active">S</li>
-                        <li>M</li>
-                        <li>L</li>
+                        {sizes.map((size, i) => <li onClick={()=> setActiveSize(i)} className={ activeSize === i ? 'active' : ''}>{size}</li>)}
                     </ul>
                 </div>
                 <div className="candle-block__bottom">
-                    <div className="candle-block__price">от {price}$</div>
+                    <div className="candle-block__price">from {price}$</div>
                     <button onClick={onClickAddButton} className="button button--outline button--add">
                         <svg
                         width="12"

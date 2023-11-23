@@ -9,9 +9,11 @@ function App() {
     <div className="wrapper">
       <Header />
       <div className="content">
-        <Categories />
-        <Sort />
-        <CandlesList />
+        <div className="container">
+          <Categories />
+          <Sort />
+          <CandlesList />
+        </div>
       </div>
     </div>
   );
