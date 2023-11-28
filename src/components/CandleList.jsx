@@ -8,7 +8,7 @@ export const CandlesList = () => {
             <h2 className="content__title">All candles</h2>
             <div className="content__items">
                 {candles.map((candle)=>(
-                    <CandleBlock {...candle}/>))
+                    <CandleBlock key={candle.id} {...candle}/>))
                 }
             </div>
         </>

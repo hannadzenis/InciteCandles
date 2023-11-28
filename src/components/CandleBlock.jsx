@@ -24,10 +24,10 @@ export const CandleBlock = ({title, price, imageUrl, sizes, types}) => {
                 <h4 className="candle-block__title">{title}</h4>
                 <div className="candle-block__selector">
                     <ul>
-                        {types.map((type) => <li onClick={()=> setActiveType(type)} className={ activeType === type ? 'active' : ''}>{typeNames[type]}</li>)}
+                        {types.map((type) => <li key={type} onClick={()=> setActiveType(type)} className={ activeType === type ? 'active' : ''}>{typeNames[type]}</li>)}
                     </ul>
                     <ul>
-                        {sizes.map((size, i) => <li onClick={()=> setActiveSize(i)} className={ activeSize === i ? 'active' : ''}>{size}</li>)}
+                        {sizes.map((size, i) => <li key={size} onClick={()=> setActiveSize(i)} className={ activeSize === i ? 'active' : ''}>{size}</li>)}
                     </ul>
                 </div>
                 <div className="candle-block__bottom">
