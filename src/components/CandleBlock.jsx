@@ -2,7 +2,7 @@ import "../styles/components/_candle-block.scss";
 import "../styles/app.scss";
 import React from "react";
 
-export const CandleBlock = ({title, price, imageUrl, sizes, types}) => {
+export const CandleBlock = ({name, price, imageUrl, sizes, types}) => {
     const typeNames = ['soy', 'coconut'];
     const [activeType, setActiveType] = React.useState(0);
     const [activeSize, setActiveSize] = React.useState(0);
@@ -21,7 +21,7 @@ export const CandleBlock = ({title, price, imageUrl, sizes, types}) => {
                 src={imageUrl}
                 alt="Candle"
                 />
-                <h4 className="candle-block__title">{title}</h4>
+                <h4 className="candle-block__title">{name}</h4>
                 <div className="candle-block__selector">
                     <ul>
                         {types.map((type) => <li key={type} onClick={()=> setActiveType(type)} className={ activeType === type ? 'active' : ''}>{typeNames[type]}</li>)}
