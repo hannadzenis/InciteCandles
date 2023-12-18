@@ -1,9 +1,7 @@
 import "../styles/components/_categories.scss";
 import React from "react";
 
-export const Categories = () => {
-    const [activeIndex, setActiveIndex] = React.useState(0);
-
+export const Categories = ({value, onClickCategory}) => {
     const categories = [
         'All',
         'Meditation',
@@ -15,7 +13,7 @@ export const Categories = () => {
     return(
         <div className="categories">     
             <ul>
-                {categories.map((value, i)=><li key={value} className={activeIndex === i ? "active" : ""} onClick={()=>{setActiveIndex(i)}}>{value}</li>)}
+                {categories.map((categoryName, i)=><li key={i} className={value === i ? "active" : ""} onClick={()=>{onClickCategory(i)}}>{categoryName}</li>)}
             </ul>
         </div>
     )
