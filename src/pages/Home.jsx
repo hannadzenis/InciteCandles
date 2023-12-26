@@ -7,12 +7,16 @@ import "../styles/app.scss";
 
 export const Home = () => {
     const [categoryId, setCategoryId] = React.useState(0);
-    const [sortType, setSortType] = React.useState(0);
+    const [sortType, setSortType] = React.useState({
+        name: "popularity", sortProperty: "rating"
+    });
     return (
         <>
-            <Categories value={categoryId} onClickCategory={(index)=>setCategoryId(index)}/>
-            <Sort />
-            <CandlesList value={categoryId}/>
+            <div className="content__top">
+                <Categories categoryValue={categoryId} onChangeCategory={(index)=>setCategoryId(index)}/>
+                <Sort sortValue={sortType} onChangeSort={(index)=>setSortType(index)}/>
+            </div>
+            <CandlesList categoryValue={categoryId} sortValue={sortType}/>
         </>
     );
 }
